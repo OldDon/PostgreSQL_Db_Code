@@ -28,7 +28,7 @@ print ("inserted 3 rows of data")
 
 # # Drop previous table of same name if one exists
 # cursor.execute("CREATE TABLE inventory (name, quantity) VALUES  ("banana", 150);")
-# cursor.execute("INSERT INTO inventory (name, quantity) VALUES ("orange", 154);") 
+# cursor.execute("INSERT INTO inventory (name, quantity) VALUES ("orange", 154);")
 # cursor.execute("INSERT INTO inventory (name, quantity) VALUES  ("apple", 100);")
 # print ("Inserted 3 rows of data")
 
@@ -37,6 +37,21 @@ print ("inserted 3 rows of data")
 cursor.execute("SELECT * FROM inventory;")
 rows = cursor.fetchall()
 
+# Print all rows
+for row in rows:
+    print ("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
+# End block of code to read and display all data within db
+
+# Start block of code to update a single row
+# Update a data row in the table
+cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
+print ("Updated 1 row of data")
+# End block of code that updates a single row
+
+# To check update, fetch data again and print the rows again
+# Fetch all rows from table
+cursor.execute("SELECT * FROM inventory;")
+rows = cursor.fetchall()
 # Print all rows
 for row in rows:
     print ("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
