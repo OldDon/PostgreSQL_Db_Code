@@ -32,7 +32,16 @@ print ("inserted 3 rows of data")
 # cursor.execute("INSERT INTO inventory (name, quantity) VALUES  ("apple", 100);")
 # print ("Inserted 3 rows of data")
 
+# Fetch all rows from table
+cursor.execute("SELECT * FROM inventory;")
+rows = cursor.fetchall()
+
+# Print all rows
+for row in rows:
+    print ("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
+
 # Cleanup
 conn.commit()
 cursor.close()
 conn.close()
+print("Connection closed")
