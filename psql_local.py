@@ -57,6 +57,21 @@ for row in rows:
     print ("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
 # End block of code to read and display all data within db
 
+# Start block of code that deletes a row that meets some criteria
+# Delete data row from table
+cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
+print ("Deleted 1 row of data")
+# End block of code that deletes a row that meets some criteria
+
+# Start block of code to read and display all data within db
+# Fetch all rows from table
+cursor.execute("SELECT * FROM inventory;")
+rows = cursor.fetchall()
+# Print all rows
+for row in rows:
+    print ("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
+# End block of code to read and display all data within db
+
 # Cleanup
 conn.commit()
 cursor.close()
