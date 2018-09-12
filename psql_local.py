@@ -32,6 +32,7 @@ print ("inserted 3 rows of data")
 # cursor.execute("INSERT INTO inventory (name, quantity) VALUES  ("apple", 100);")
 # print ("Inserted 3 rows of data")
 
+# Start block of code to read and display all data within db
 # Fetch all rows from table
 cursor.execute("SELECT * FROM inventory;")
 rows = cursor.fetchall()
@@ -39,6 +40,7 @@ rows = cursor.fetchall()
 # Print all rows
 for row in rows:
     print ("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
+# End block of code to read and display all data within db
 
 # Cleanup
 conn.commit()
