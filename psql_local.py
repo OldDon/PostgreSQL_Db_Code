@@ -32,6 +32,14 @@ print ("inserted 3 rows of data")
 # cursor.execute("INSERT INTO inventory (name, quantity) VALUES  ("apple", 100);")
 # print ("Inserted 3 rows of data")
 
+cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
+
+# Get the updated values
+cursor.execute("SELECT * FROM inventory")
+rows = cursor.fetchall()
+# Display the updated table
+for row in rows:
+    print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
 # Fetch all rows from table
 cursor.execute("SELECT * FROM inventory;")
 rows = cursor.fetchall()
